@@ -8,7 +8,7 @@ package msort
 func InsertSort(nums []int) []int {
 	// 一张张拿牌
 	for i := 0; i < len(nums); i++ {
-		// 从最大的牌开始比较, 不断的插入牌到
+		// 将牌插到最后, 若比前一张牌小, 则与前一张牌交换位置, 否则停止
 		for j := i; j > 0 && nums[i] > nums[j-1]; j-- {
 			nums[i], nums[j-1] = nums[j-1], nums[i]
 		}
