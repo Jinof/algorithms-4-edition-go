@@ -1,7 +1,7 @@
 package msort
 
-// Shell
-// 归并排序
+// ShellSort
+// 希尔排序
 // 基于插入排序的一个高效排序算法, 对于长度为N的任意数组, 只需要进行NlogN次比较就可以将其排序.
 func ShellSort(nums []int) []int {
 	N := len(nums)
