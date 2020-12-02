@@ -5,7 +5,7 @@ package msort
 // 和整理桥牌时一样, 人们会一张一张来.将拿到的牌插入到已经有序的牌中的适当位置, 拿到最后一张时也就完成里所有牌的排序.
 // 当然在计算机中会有些许不同. 为了要插入一个数据到数组中, 需要将插入位置之后的元素都向右位移一边.
 // 为了避免直接的位移操作, 我们每次判断大小后都向后交换小元素的位置, 直到这个元素足够大(大于等于左边的元素)
-func InsertSort(nums []int) []int {
+func InsertSort(nums []int) {
 	// 一张张拿牌
 	for i := 0; i < len(nums); i++ {
 		// 将牌插到最后, 若比前一张牌小, 则与前一张牌交换位置, 否则停止
@@ -13,5 +13,4 @@ func InsertSort(nums []int) []int {
 			nums[i], nums[j-1] = nums[j-1], nums[i]
 		}
 	}
-	return nums
 }

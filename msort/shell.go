@@ -3,7 +3,7 @@ package msort
 // ShellSort
 // 希尔排序
 // 基于插入排序的一个高效排序算法, 对于长度为N的任意数组, 只需要进行NlogN次比较就可以将其排序.
-func ShellSort(nums []int) []int {
+func ShellSort(nums []int) {
 	N := len(nums)
 	h := 1
 	for h != N/3 {
@@ -22,5 +22,4 @@ func ShellSort(nums []int) []int {
 		}
 		h = h / 3
 	}
-	return nums
 }
