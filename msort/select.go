@@ -6,11 +6,12 @@ package msort
 // 遍历一次后即可将数组排序
 func SelectSort(nums []int) {
 	for i := 0; i < len(nums); i++ {
-		min := nums[i]
+		min := i
 		for j := i + 1; j < len(nums); j++ {
-			if min > nums[j] {
-				nums[i], nums[j] = nums[j], nums[i]
+			if nums[min] > nums[j] {
+				min = j
 			}
 		}
+		nums[i], nums[min] = nums[min], nums[i]
 	}
 }
