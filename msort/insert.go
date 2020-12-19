@@ -9,8 +9,8 @@ func InsertSort(nums []int) {
 	// 一张张拿牌
 	for i := 0; i < len(nums); i++ {
 		// 将牌插到最后, 若比前一张牌小, 则与前一张牌交换位置, 否则停止
-		for j := i; j > 0 && nums[i] > nums[j-1]; j-- {
-			nums[i], nums[j-1] = nums[j-1], nums[i]
+		for j := i; j > 0 && nums[j] < nums[j-1]; j-- {
+			nums[j], nums[j-1] = nums[j-1], nums[j]
 		}
 	}
 }
