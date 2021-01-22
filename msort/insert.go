@@ -7,10 +7,27 @@ package msort
 // 为了避免直接的位移操作, 我们每次判断大小后都向后交换小元素的位置, 直到这个元素足够大(大于等于左边的元素)
 func InsertSort(nums []int) {
 	// 一张张拿牌
-	for i := 0; i < len(nums); i++ {
-		// 将牌插到最后, 若比前一张牌小, 则与前一张牌交换位置, 否则停止
-		for j := i; j > 0 && nums[j] < nums[j-1]; j-- {
-			nums[j], nums[j-1] = nums[j-1], nums[j]
+	//for i := 0; i < len(nums); i++ {
+	//	// 将牌插到最后, 若比前一张牌小, 则与前一张牌交换位置, 否则停止
+	//	for j := i; j > 0 && nums[j] < nums[j-1]; j-- {
+	//		nums[j], nums[j-1] = nums[j-1], nums[j]
+	//	}
+	//}
+
+	// 下面为贴近实际的(减少了上面的交换操作)的抓牌排序
+	// 从牌堆中取牌. 取第一张牌时不用排序, 直接放在左手, 从第二张牌开始排序.
+	for i := 1; i < len(nums); i++ {
+		// 从牌堆抓取一张牌放在右手
+		key := nums[i]
+
+		// j 记录当前牌的位置
+		var j int
+		for j = i - 1; j > 0 && nums[j] > key; j-- {
+			// 发现左手当前牌比抓取的牌大, 将当前牌向右移动一个位置
+			nums[j+1] = nums[j]
 		}
+
+		// 将牌比完后, 放入空出的位置
+		nums[j-1] = key
 	}
 }
